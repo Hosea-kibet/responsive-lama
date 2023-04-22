@@ -3,7 +3,7 @@ import { Grid, Box } from "@mui/material";
 import PageContainer from "../src/components/container/PageContainer";
 
 // components
-import SalesOverview from "../src/components/dashboard/SalesOverview";
+import AudioPlayer from "../src/components/dashboard/AudioPlayer";
 import YearlyBreakup from "../src/components/dashboard/YearlyBreakup";
 import RecentTransactions from "../src/components/dashboard/RecentTransactions";
 import ProductPerformance from "../src/components/dashboard/ProductPerformance";
@@ -17,7 +17,7 @@ export default function Home() {
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={8}>
-            <SalesOverview />
+            <AudioPlayer/>
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid container spacing={3}>
