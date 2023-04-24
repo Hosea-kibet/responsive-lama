@@ -1,18 +1,51 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import DashboardCard from "../shared/DashboardCard";
 import dynamic from "next/dynamic";
 import DisplayTrack from "./DisplayTrack";
 import Controls from "./Controls";
 import ProgressBar from "./ProgressBar";
-import { tracks } from "../../data/tracks";
+import { tunes } from "../../data/tracks";
 import FormInput from "../subscribe/FormInput";
+import axios from "axios";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const AudioPlayer = () => {
+
+  const [listtunes, setListTunes] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/list?limit=140&page=1"
+      )
+      .then((res) => {
+        setListTunes(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  let tracks = listtunes.map((e) => {
+    // @ts-ignore
+    let temp = tunes.find((element) => element.id === e.id);
+    // @ts-ignore
+    if (temp.file) {
+      // @ts-ignore
+      e.file = temp.file;
+    }
+    return e;
+  });
+
+
+  console.log(tracks);
+
+
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(tracks[trackIndex]);
   const [timeProgresss , setTimeProgresss] = useState(0);
+
   const [duration ,setDuration] = useState(0);
   const audioRef = useRef();
   const ProgressBarRef = useRef();
@@ -27,8 +60,11 @@ const AudioPlayer = () => {
     }
   };
 
+ 
 
 
+  
+  
   return (
     <DashboardCard title="Subscribe">
       <div className="bg-[#d8f2df] rounded-2xl p-4">
@@ -36,7 +72,7 @@ const AudioPlayer = () => {
           <DisplayTrack {...{currentTrack,audioRef,setDuration,ProgressBarRef,handleNext}}/>
           <Controls {...{audioRef, ProgressBarRef, duration,setTimeProgresss,tracks,trackIndex,setTrackIndex,setCurrentTrack,handleNext}} />
           <ProgressBar  {...{ProgressBarRef,audioRef,timeProgresss,duration}}/>
-          <FormInput/>
+          <FormInput {...{currentTrack}}/>
         </div>
       </div>
     </DashboardCard>

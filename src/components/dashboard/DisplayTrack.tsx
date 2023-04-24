@@ -10,7 +10,7 @@ const DisplayTrack = ({ currentTrack, audioRef,setDuration,ProgressBarRef ,handl
   return (
     <div>
       <audio 
-         src={currentTrack && currentTrack.src}
+         src={currentTrack && currentTrack.file}
          ref={audioRef}
          onLoadedMetadata={onLoadedMetadata}
          onEnded={handleNext}
@@ -26,8 +26,12 @@ const DisplayTrack = ({ currentTrack, audioRef,setDuration,ProgressBarRef ,handl
         </div>
         <div className="col-span-12 sm:col-span-8">
           <div className="flex h-full flex-col justify-center">
-            <h2 className="mb-2 text-2xl font-bold">{currentTrack.title}</h2>
-            <p className="text-gray-500">{currentTrack.author}</p>
+             <h2 className="mb-2 text-2xl font-bold">{currentTrack && currentTrack.name}</h2>
+            {currentTrack && currentTrack.description ? (
+              <p className="text-gray-500">{currentTrack.description}</p>
+            ) : (
+              <p className="text-gray-500">No description available.</p>
+            )}
           </div>
         </div>
       </div>
