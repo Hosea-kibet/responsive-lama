@@ -1,22 +1,32 @@
-import { BsMusicNoteBeamed } from 'react-icons/bs';
-import styled from 'styled-components';
+import { BsMusicNoteBeamed } from "react-icons/bs";
+import styled from "styled-components";
 
-const DisplayTrack = ({ currentTrack, audioRef }: any) => {
+const DisplayTrack = ({ currentTrack, audioRef,setDuration,ProgressBarRef ,handleNext}: any) => {
+  const onLoadedMetadata = () => {
+    const seconds = audioRef.current.duration;
+    setDuration(seconds);
+    ProgressBarRef.current.max = seconds;
+  };
   return (
     <div>
-      <audio src={currentTrack && currentTrack.src} ref={audioRef} />
+      <audio 
+         src={currentTrack && currentTrack.src}
+         ref={audioRef}
+         onLoadedMetadata={onLoadedMetadata}
+         onEnded={handleNext}
+       />
       <div className="grid grid-cols-12 gap-2">
         <div className="col-span-12 sm:col-span-4">
-          <div className="relative pb-full">
-            <div className="absolute w-full h-full rounded-lg bg-gray-400 flex items-center mt-6">
-              <BsMusicNoteBeamed className="text-4xl text-white hidden sm:block" />
+          <div className="pb-full relative">
+            <div className="absolute mt-6 flex h-full w-full items-center rounded-lg bg-gray-400">
+              <BsMusicNoteBeamed className="hidden text-4xl text-white sm:block" />
               {/* ^ added "hidden sm:block" to hide on small screens */}
             </div>
           </div>
         </div>
         <div className="col-span-12 sm:col-span-8">
-          <div className="flex flex-col justify-center h-full">
-            <h2 className="text-2xl font-bold mb-2">{currentTrack.title}</h2>
+          <div className="flex h-full flex-col justify-center">
+            <h2 className="mb-2 text-2xl font-bold">{currentTrack.title}</h2>
             <p className="text-gray-500">{currentTrack.author}</p>
           </div>
         </div>
