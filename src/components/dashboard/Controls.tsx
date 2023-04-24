@@ -30,16 +30,21 @@ const Controls = ({
 
   const repeat = useCallback(() => {
     console.log("run");
-    const currentTime = audioRef.current.currentTime;
-    setTimeProgresss(currentTime);
-    ProgressBarRef.current.value = currentTime;
-    ProgressBarRef.current.style.setProperty(
-      "--range-progress",
-      `${(ProgressBarRef.current.value / duration) * 100}%`
-    );
-
-    playAnimationRef.current = requestAnimationFrame(repeat);
-  }, [audioRef, duration, ProgressBarRef, setTimeProgresss]);
+    if(audioRef.current){
+      const currentTime = audioRef.current.currentTime;
+      setTimeProgresss(currentTime);
+      ProgressBarRef.current.value = currentTime;
+      ProgressBarRef.current.style.setProperty(
+        "--range-progress",
+        `${(ProgressBarRef.current.value / duration) * 100}%`
+      );
+  
+      playAnimationRef.current = requestAnimationFrame(repeat);
+  
+    } else {
+      console.error("audioRef.current is null or undefined");
+    }
+     }, [audioRef, duration, ProgressBarRef, setTimeProgresss]);
 
   useEffect(() => {
     if (isPlaying) {
