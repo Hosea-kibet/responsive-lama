@@ -1,5 +1,4 @@
 import type { ReactElement, ReactNode } from "react";
-
 import type { NextPage } from "next";
 import Head from "next/head";
 import { AppProps } from "next/app";
@@ -8,6 +7,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "../src/createEmotionCache";
 import { baselightTheme } from "../src/theme/DefaultColors";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/global.css'
 
 import 'tailwindcss/tailwind.css';
@@ -40,6 +41,7 @@ const MyApp = (props: MyAppProps) => {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         {getLayout(<Component {...pageProps} />)}
+        <ToastContainer />
       </ThemeProvider>
     </CacheProvider>
   );

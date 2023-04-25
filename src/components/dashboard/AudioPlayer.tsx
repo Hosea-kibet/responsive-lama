@@ -16,6 +16,7 @@ const AudioPlayer = () => {
   const [tracks, setTracks] = useState([]);
   const [trackIndex, setTrackIndex] = useState(0);
   const [currentTrack, setCurrentTrack] = useState(undefined)
+  console.log("The current track",currentTrack)
   const [showOtpForm, setShowOtpForm] = useState(false);
 
   useEffect(() => {

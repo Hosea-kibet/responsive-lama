@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-
+import { toast } from 'react-toastify';
 const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [response, setResponse] = useState('');
+  const [response, setResponse] = useState({
+    id:0
+  });
+  const responseId = response.id
   const [errorMessage, setErrorMessage] = useState('');
   
   const [otp ,setOTP] = useState('');
@@ -49,13 +52,55 @@ const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
           
         } else {
           // Handle error response
-          throw new Error('OTP was sent, try next');
+          throw new Error('OTP was sent, click next');
         }
+      })
+      .then((result) => {
+        console.log(result);
+        toast.success("Enter The OTP Sent!"); // Display snackbar
       })
       .catch((error) => {
         // Handle error by setting the status state variable to the error message
         setErrorMessage(error.message);
-        console.log('error...................', error);
+        toast.error(errorMessage); // Display error toast
+      });
+  };
+
+
+  const subscriptionHandler = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        tune_code: currentTrack && currentTrack.code,
+        phonenumber: phoneNumber,
+        otp: otp,
+      }),
+    };
+    //send the request
+    fetch(
+      `https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscription/confirm/${responseId}`,
+      requestOptions
+    )
+      .then((response) => {
+        if (response.ok) {
+          setShowOtpForm(false)
+          // Handle successful response
+          return response.json();
+        } else {
+          // Handle error response
+          throw new Error("Wrong OTP!!");
+        }
+      })
+      .then((result) => {
+        console.log(result);
+        toast.success("Subscription successful!"); // Display snackbar
+      })
+      .catch((error) => {
+        toast.error("Failed to subscribe!"); // Display error toast
       });
   };
 
@@ -87,7 +132,7 @@ const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
       </form>
       ) : ( 
         <form
-        // onSubmit={handleSubmit}
+        onSubmit={subscriptionHandler}
         className="w-full mt-4"
       >
         <div className="relative flex flex-col sm:flex-row">
