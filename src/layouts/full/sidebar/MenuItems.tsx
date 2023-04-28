@@ -32,22 +32,7 @@ const Menuitems = [
     icon: IconCopy,
     href: '/utilities/shadow',
   },
-  // {
-  //   navlabel: true,
-  //   subheader: 'Auth',
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Login',
-  //   icon: IconLogin,
-  //   href: '/authentication/login',
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Register',
-  //   icon: IconUserPlus,
-  //   href: '/authentication/register',
-  // },
+  
   {
     navlabel: true,
     subheader: 'Winnings',
@@ -64,12 +49,7 @@ const Menuitems = [
     icon: IconAperture,
     href: '/sample-page',
   },
-  {
-    id: uniqueId(),
-    title: 'Faq',
-    icon: IconAperture,
-    href: '/sample-page',
-  },
+  
   {
     navlabel: true,
     subheader: 'Extra',
@@ -78,14 +58,14 @@ const Menuitems = [
     id: uniqueId(),
     title: 'FAQ',
     icon: IconMoodHappy,
-    href: '/icons',
+    href: '/utilities/faq',
   },
   
   {
     id: uniqueId(),
     title: 'How To Unsubscribe',
     icon: IconMoodHappy,
-    href: '/icons',
+    href: '/utilities/unsubscribe',
   },
  
   
