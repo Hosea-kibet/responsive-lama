@@ -9,8 +9,10 @@ import FormInput from "../subscribe/FormInput";
 import axios from "axios";
 import { FacebookShareButton } from "react-share";
 import { WhatsappShareButton } from "react-share";
+import {InstapaperShareButton } from "react-share";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import ShareIcon from '@mui/icons-material/Share';
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
@@ -110,6 +112,9 @@ const AudioPlayer = () => {
           <FacebookShareButton url={shareUrl} quote={title}>
          < FacebookIcon/>
           </FacebookShareButton>
+          <InstapaperShareButton url={shareUrl} title={title}>
+            <InstagramIcon/>
+          </InstapaperShareButton>
           </div>
         </div>
       </div>
