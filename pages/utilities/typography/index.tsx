@@ -64,6 +64,8 @@ const SearchBox = ({ value, onChange }: any) => (
 const TypographyPage = () => {
   const [data, setData] = useState([]);
   const [firstTen, setFirstTen] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -120,7 +122,7 @@ const TypographyPage = () => {
         );
         setData(response.data);
         setFirstTen(response.data);
-        // setRest(response.data.slice(10));
+        setLoading(false)
       } catch (error) {
         console.error(error);
       }

@@ -6,6 +6,8 @@ import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft } from '@tabler/icons-react';
 
 import DashboardCard from '../../../src/components/shared/DashboardCard';
+import { FacebookShareButton } from 'react-share';
+import { WhatsappShareButton } from 'react-share';
 
 const YearlyBreakup = () => {
   // chart color
@@ -62,6 +64,10 @@ const YearlyBreakup = () => {
   };
   const seriescolumnchart: any = [38, 40, 25];
 
+  const shareUrl = 'huraantunes.com';
+  const title = 'Example Title';
+
+
   return (
     <DashboardCard title="Yearly Breakup">
       <Grid container spacing={3}>
@@ -95,7 +101,12 @@ const YearlyBreakup = () => {
                 sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
-                2023
+              <FacebookShareButton url={shareUrl} quote={title}>
+      Share on Facebook
+    </FacebookShareButton>
+    <WhatsappShareButton url={shareUrl} title={title}>
+      Share on WhatsApp
+    </WhatsappShareButton>
               </Typography>
             </Stack>
           </Stack>
