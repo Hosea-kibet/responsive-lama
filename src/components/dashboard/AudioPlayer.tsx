@@ -74,7 +74,7 @@ const AudioPlayer = () => {
   const title = "Share with friends";
 
   return (
-    <DashboardCard title="Subscribe">
+    <DashboardCard title="Playlist">
       <div className="rounded-2xl bg-[#d8f2df] p-4">
         <div className=" mx-auto max-w-7xl space-y-4 px-4 py-8 sm:flex-row  sm:items-center sm:space-y-0 sm:px-6 lg:px-8 ">
           <DisplayTrack

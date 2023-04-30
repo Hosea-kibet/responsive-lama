@@ -17,7 +17,10 @@ const Logo = () => {
   return (
     <LinkStyled href="/">
       {/* <Image src="/images/logos/dark-logo.svg" alt="logo" height={70} width={174} priority /> */}
-      <span className="text-black text-xl">Lamahuraan</span>
+      <div className="text-3xl font-bold text-[#89C545]">
+      <span className="uppercase">SKY</span>
+      <span className="lowercase">media</span>
+    </div>
     </LinkStyled>
   );
 };
