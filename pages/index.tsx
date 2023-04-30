@@ -11,6 +11,9 @@ import Blog from "../src/components/dashboard/Blog";
 import MonthlyEarnings from "../src/components/dashboard/MonthlyEarnings";
 import FullLayout from "../src/layouts/full/FullLayout";
 
+
+
+
 export default function Home() {
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
@@ -21,9 +24,9 @@ export default function Home() {
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid container spacing={3}>
-              <Grid item xs={12}>
+              {/* <Grid item xs={12}>
                 <YearlyBreakup />
-              </Grid>
+              </Grid> */}
               {/* <Grid item xs={12}>
                 <MonthlyEarnings />
               </Grid> */}
