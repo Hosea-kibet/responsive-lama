@@ -18,7 +18,8 @@ const Controls = ({
   trackIndex,
   setTrackIndex,
   setCurrentTrack,
-  handleNext
+  handleNext,
+  setShowOtpForm
 }: any) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -75,6 +76,7 @@ const Controls = ({
       setTrackIndex((prev: number) => prev- 1);
       setCurrentTrack(tracks[trackIndex - 1]);
     }
+    setShowOtpForm(false);
   };
 
   // const handleNext = () => {
@@ -126,3 +128,7 @@ const Controls = ({
 };
 
 export default Controls;
+function setShowOtpForm(arg0: boolean) {
+  throw new Error("Function not implemented.");
+}
+

@@ -53,6 +53,7 @@ const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
         } else {
           // Handle error response
           throw new Error('OTP was sent, Please click next');
+          
         }
       })
       .then((result) => {
