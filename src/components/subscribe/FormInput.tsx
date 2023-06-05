@@ -6,7 +6,7 @@ const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
     id:0
   });
   const responseId = response.id
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('Server Error');
   
   const [otp ,setOTP] = useState('');
 
@@ -38,7 +38,9 @@ const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
   
     // Send the request
     fetch(
-      'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribe',
+      //MAMBO YANANAFANYIKA
+      'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribesss',
+      // 'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribe',
       requestOptions
     )
       .then(async (response) => {

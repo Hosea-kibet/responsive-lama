@@ -147,7 +147,9 @@ const TypographyPage = () => {
 
     // Send the request
     fetch(
-      "https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribe",
+      // MAMBOZ
+      // "https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribe",
+      "https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribesasasasas",
       requestOptions
     )
       .then(async (response) => {
