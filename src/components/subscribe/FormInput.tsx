@@ -39,8 +39,8 @@ const FormInput = ({ currentTrack,showOtpForm,setShowOtpForm }: any) => {
     // Send the request
     fetch(
       //MAMBO YANANAFANYIKA
-      'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribesss',
-      // 'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribe',
+      // 'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribesss',
+      'https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/subscribe',
       requestOptions
     )
       .then(async (response) => {
