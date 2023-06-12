@@ -17,12 +17,12 @@ import ShareIcon from '@mui/icons-material/Share';
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const AudioPlayer = () => {
-  // const [listtunes, setListTunes] = useState([]);
-  // const [tracks, setTracks] = useState([]);
-  // const [trackIndex, setTrackIndex] = useState(0);
-  // const [currentTrack, setCurrentTrack] = useState(undefined);
-  // console.log("The current track", currentTrack);
-  // const [showOtpForm, setShowOtpForm] = useState(false);
+  const [listtunes, setListTunes] = useState([]);
+  const [tracks, setTracks] = useState([]);
+  const [trackIndex, setTrackIndex] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState(undefined);
+  console.log("The current track", currentTrack);
+  const [showOtpForm, setShowOtpForm] = useState(false);
 
   useEffect(() => {
     axios
