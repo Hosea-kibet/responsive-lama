@@ -244,14 +244,14 @@ const TypographyPage = () => {
                     <StyledTableRow
                       key={row.id}
                       onClick={() => {
-                        handleRowClick(row.codez);
+                        handleRowClick(row.code);
                       }}
                     >
                       <StyledTableCell component="th" scope="row">
-                        {row.codse}
+                        {row.code}
                       </StyledTableCell>
                       <StyledTableCell align="center">
-                        {row.namea}
+                        {row.name}
                       </StyledTableCell>
                     </StyledTableRow>
                   ))}
