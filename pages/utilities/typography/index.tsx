@@ -118,7 +118,7 @@ const TypographyPage = () => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
-          "https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/list?limit=1000&page=1"
+          "https://skiza-app-dy3qp.ondigitalocean.app/public/skiza/list?limit=2000&page=1"
         );
         setData(response.data);
         setFirstTen(response.data);
